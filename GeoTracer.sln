@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34607.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoTracer.Client", "GeoTracer.Client\GeoTracer.Client.csproj", "{E748B4A1-C661-4B4D-8394-FA61C943648E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoTracer.Shared", "GeoTracer.Shared\GeoTracer.Shared.csproj", "{533639BC-E78B-489E-B840-F298CB7A4AEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoTracer.Api", "GeoTracer.Api\GeoTracer.Api.csproj", "{C97E0FC4-AE4D-400A-88F5-AA0994BA5BAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E748B4A1-C661-4B4D-8394-FA61C943648E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E748B4A1-C661-4B4D-8394-FA61C943648E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E748B4A1-C661-4B4D-8394-FA61C943648E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E748B4A1-C661-4B4D-8394-FA61C943648E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E748B4A1-C661-4B4D-8394-FA61C943648E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E748B4A1-C661-4B4D-8394-FA61C943648E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{533639BC-E78B-489E-B840-F298CB7A4AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533639BC-E78B-489E-B840-F298CB7A4AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533639BC-E78B-489E-B840-F298CB7A4AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533639BC-E78B-489E-B840-F298CB7A4AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97E0FC4-AE4D-400A-88F5-AA0994BA5BAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97E0FC4-AE4D-400A-88F5-AA0994BA5BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97E0FC4-AE4D-400A-88F5-AA0994BA5BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97E0FC4-AE4D-400A-88F5-AA0994BA5BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E969F33-1978-4AD2-9784-7F3D2C62FFA6}
+	EndGlobalSection
+EndGlobal

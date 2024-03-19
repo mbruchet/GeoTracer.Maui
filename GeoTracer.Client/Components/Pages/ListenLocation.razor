@@ -1,0 +1,26 @@
+﻿@page "/ListenLocation"
+
+<h2>Listen for location changes</h2>
+
+<div class="alert @(Success ? "success" : "danger")">
+
+</div>
+
+@if(InitialLocation != null)
+{
+    <h3>Initial Location</h3><cite>@InitialLocationDisplay</cite>
+}
+
+@if(CurrentLocation != null)
+{
+    <h3>Current Location</h3><cite>@CurrentLocationDisplay</cite>
+    <h3>Speed:</h3><cite>@SpeedDisplay</cite>
+}
+
+<button class="btn btn-primary" @onclick="OnStartListening" disabled="@IsRunning">Start</button>
+<button class="btn btn-warning" @onclick="OnStopListening" disabled="@(!IsRunning)">Stop</button>
+
+@if(Distance > 0)
+{
+    <h3>Distance:</h3><cite>@Distance</cite>
+}

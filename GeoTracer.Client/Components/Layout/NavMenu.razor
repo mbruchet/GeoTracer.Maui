@@ -1,0 +1,31 @@
+﻿@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager navMan
+
+<MudNavMenu Class="demo-navmenu">
+    <AuthorizeView>
+        <Authorized>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Newspaper">History</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.SpaceDashboard">Dashboard</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.CalendarToday">Planning</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.CarRepair">Change car</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.ExitToApp" @onclick="Logout">Logout</MudNavLink>
+        </Authorized>
+        <NotAuthorized>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.LockPerson" @onclick="Login">Login</MudNavLink>
+        </NotAuthorized>
+    </AuthorizeView>
+</MudNavMenu>
+
+@code
+{
+    public async Task Login()
+    {
+        navMan.NavigateTo("/login");
+    }
+
+    public async Task Logout()
+    {
+        await ((ExternalAuthStateProvider)AuthenticationStateProvider)
+            .Logout();
+    }
+}

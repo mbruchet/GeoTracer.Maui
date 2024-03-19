@@ -1,0 +1,62 @@
+﻿@page "/Login"
+@using System.ComponentModel.DataAnnotations
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager navMan
+
+@attribute [AllowAnonymous]
+<MudContainer>
+    <MudPaper Elevation="3" Class="login-container">
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h4" Class="login-title">Connexion</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudForm @ref="formLogin" @bind-IsValid="@success" @bind-Errors="@errors">
+                    <MudTextField T="string" Label="UserName" Required="true"
+                        RequiredError="The login is required"
+                                  InputType="InputType.Email" 
+                                  Validation="@(new EmailAddressAttribute() 
+                                        {ErrorMessage = "The email address is invalid"})" @bind-Value="InputLogin"></MudTextField>
+                    <MudTextField T="string" Label="Password" HelperText="Choose a strong password" @bind-Value="InputPassword"
+                                  InputType="InputType.Password"
+                                  Required="true"
+                                  RequiredError="Password is required!" />
+                </MudForm>
+            </MudCardContent>
+        </MudCard>
+    </MudPaper>
+    <MudPaper Class="pa-4 mt-4">
+        <MudButton ButtonType=ButtonType.Submit Variant="Variant.Filled" Color="Color.Primary" DisableElevation="true" OnClick="LoginClicked">Validate</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Secondary" DisableElevation="true" OnClick="@(()=>formLogin.ResetAsync())" Class="mx-2">Reset</MudButton>
+    </MudPaper>
+</MudContainer>
+@code {
+    bool success;
+    string[] errors = { };
+    MudForm formLogin;
+    string InputLogin { get; set; } = "";
+    string InputPassword { get; set; } = "";
+    string LoginFailedError { get; set; } = "";
+
+    async Task LoginClicked()
+    {
+        await formLogin.Validate();
+
+        if(formLogin.IsValid)
+        {
+            var loginResult = await ((ExternalAuthStateProvider)AuthenticationStateProvider).LoginAsync(InputLogin, InputPassword);
+
+            if(loginResult.Success)
+            {
+                navMan.NavigateTo("/", true);
+            }
+            else
+            {
+                LoginFailedError = loginResult.Message;
+                await InvokeAsync(StateHasChanged);
+            }
+        }
+    }
+}
